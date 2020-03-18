@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 RUN apt-get update --yes \
- && apt-get install --yes --no-install-recommends wget
+ && apt-get install --yes --no-install-recommends wget \
  && rm -rf /var/lib/apt/lists/*
 
 RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh --no-check-certificate \
