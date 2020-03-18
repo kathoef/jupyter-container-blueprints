@@ -7,7 +7,7 @@ RUN apt-get update --yes \
 RUN wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh --no-check-certificate \
  && bash Miniconda3-latest-Linux-x86_64.sh -b -p miniconda3 \
  && rm -rf Miniconda3-latest-Linux-x86_64.sh \
- && source miniconda3/bin/activate base \
+ && /miniconda3/bin/activate base \
  && conda install jupyterlab nb_conda_kernels --yes \
  && conda create -n analysis -c conda-forge ipykernel numpy netCDF4 scipy matplotlib pandas --yes \
  && conda clean -a --yes
