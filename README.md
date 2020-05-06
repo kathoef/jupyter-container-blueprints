@@ -34,11 +34,11 @@ in the directory, in which e.g. your already existing Jupyter notebooks are loca
 
 In the container execute `./jupyterlab.sh` to start JupyterLab. To access your notebooks via the containerized JupyterLab session, copy and paste the localhost URL into your local browser.
 
-## Disclaimer
+## Disclaimer/Notes
 
 To keep image sizes as small as possible one would actually not set up several conda environments, e.g. Python kernels, in a single container. Each kernel should rather get its own container.
 
-This Docker container was designed to reproduce the "one JupyterLab instance accesses them all" kernel user experience, that you get by any typical OS-based installation. What is presented here is, however, rather meant as an exercise, and might not at all be ready/recommendable for productive use.
+However, this Docker container was designed to reproduce the "one JupyterLab instance accesses them all" kernel user experience, that you get by any typical OS-based installation. It should be added, that what is presented here is rather an exercise, and might not at all be ready/recommendable for productive use.
 
 ## References
 
