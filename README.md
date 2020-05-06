@@ -14,7 +14,7 @@ conda install -n base jupyterlab nb_conda_kernels
 conda create -n plotting -c conda-forge ipykernel matplotlib
 ```
 
-inside a container environment. You only need a local installation of Docker to get started. Download the `Dockerfile` from the repository and execute
+inside a container environment. You only need a local installation of Docker to get started. Download the `Dockerfile` from this repository and execute this
 
 ```bash
 docker image build . -t jupyter
@@ -28,13 +28,13 @@ You can start a container Bash session with
 docker run -p 8888:8888 -v $(pwd):/home/jupyter/persistent -it jupyter /bin/bash
 ```
 
-in the directory, in which e.g. your already existing Jupyter notebooks are located. In the container execute `./jupyterlab.sh` to start-up JupyterLab. To access your notebooks via the containerized JupyterLab session, copy and paste the localhost URL into your local browser.
+in the directory, in which e.g. your already existing Jupyter notebooks are located. In the container execute `./jupyterlab.sh` to start JupyterLab. To access your notebooks via the containerized JupyterLab session, copy and paste the localhost URL into your local browser.
 
 ## Disclaimer
 
 To keep image sizes as small as possible one would actually not set up several conda environments, e.g. Python kernels, in a single container. Each kernel should rather get its own container.
 
-However, here I have tried to reproduce the "one JupyterLab instance accesses them all" kernel user experience, that you get by any typical OS-based installation,  as close as possible. What is presented here is certainly rather meant as a (thought-)exercise, and the workflows might not at all be recommendable for productive use.
+However, here I have tried to reproduce the "one JupyterLab instance accesses them all" kernel user experience, that you get by any typical OS-based installation. What is presented here is rather meant as a (thought) exercise, and the workflows might not at all be ready/recommendable for productive use.
 
 ## References
 
