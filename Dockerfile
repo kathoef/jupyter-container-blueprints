@@ -1,25 +1,29 @@
 FROM ubuntu:18.04
 
+
 # Setup host environment.
-# Do as priviledged root user.
+# Do as privileged root user.
 
 RUN apt-get update --yes \
  && apt-get install --yes --no-install-recommends wget \
  && rm -rf /var/lib/apt/lists/*
 
+
 # Install a container init system.
-# Sets up non-microservice use.
+# Sets non-microservice use.
 
 ARG TINI_VERSION=v0.19.0
 
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
 
-# Add an un-priviledged user.
+
+# Add un-privileged user.
 
 RUN useradd -g users -s /bin/bash --create-home jupyter
 
-# Install JupyterLab as un-priviledged user.
+
+# Install JupyterLab as un-privileged user.
 
 USER jupyter
 
@@ -38,7 +42,8 @@ RUN ${HOME}/miniconda3/bin/conda install -n base jupyterlab nb_conda_kernels \
  && ${HOME}/miniconda3/bin/conda create -n plotting -c conda-forge ipykernel matplotlib \
  && ${HOME}/miniconda3/bin/conda clean --all --yes
 
-# Change into home directory.
+
+# Change to home directory.
 # Add JupyterLab start-up script.
 
 WORKDIR /home/jupyter
@@ -49,13 +54,15 @@ RUN echo '#!/bin/bash' > jupyterlab.sh \
  && echo 'jupyter lab --no-browser --ip=0.0.0.0' >> jupyterlab.sh \
  && chmod +x jupyterlab.sh
 
+
 # Convenience area.
 
 # Add persistent storage mount point.
 RUN mkdir persistent
 
-# Set default Jupyter terminal.
+# Set default JupyterLab terminal.
 ENV SHELL /bin/bash
+
 
 # Always enter with init system.
 
