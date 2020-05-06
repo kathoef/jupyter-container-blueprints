@@ -34,7 +34,7 @@ in the directory, in which e.g. your already existing Jupyter notebooks are loca
 
 To keep image sizes as small as possible one would actually not set up several conda environments, e.g. Python kernels, in a single container. Each kernel should rather get its own container.
 
-However, here I have tried to reproduce the "one JupyterLab instance accesses them all" kernel user experience, that you get by any typical OS-based installation. What is presented here is rather meant as a (thought) exercise, and the workflows might not at all be ready/recommendable for productive use.
+Here I have tried to reproduce the "one JupyterLab instance accesses them all" kernel user experience, that you get by any typical OS-based installation. What is presented here, however, is rather meant as an exercise, and workflows might not at all be ready/recommendable for a productive use.
 
 ## References
 
