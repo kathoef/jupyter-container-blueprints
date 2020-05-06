@@ -30,13 +30,15 @@ You can start a container Bash session with
 docker run -p 8888:8888 -v $(pwd):/home/jupyter/persistent -it jupyter /bin/bash
 ```
 
-in the directory, in which e.g. your already existing Jupyter notebooks are located. In the container execute `./jupyterlab.sh` to start JupyterLab. To access your notebooks via the containerized JupyterLab session, copy and paste the localhost URL into your local browser.
+in the directory, in which e.g. your already existing Jupyter notebooks are located.
+
+In the container execute `./jupyterlab.sh` to start JupyterLab. To access your notebooks via the containerized JupyterLab session, copy and paste the localhost URL into your local browser.
 
 ## Disclaimer
 
 To keep image sizes as small as possible one would actually not set up several conda environments, e.g. Python kernels, in a single container. Each kernel should rather get its own container.
 
-Here I have tried to reproduce the "one JupyterLab instance accesses them all" kernel user experience, that you get by any typical OS-based installation. What is presented here, however, is rather meant as an exercise, and workflows might not at all be ready/recommendable for a productive use.
+Here, the "one JupyterLab instance accesses them all" kernel user experience, that you get by any typical OS-based installation, was reproduced as close as possible. What is presented, however, is rather meant as an exercise, and not at all be ready/recommendable for productive use.
 
 ## References
 
