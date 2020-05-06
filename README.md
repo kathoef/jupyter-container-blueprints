@@ -14,7 +14,9 @@ conda install -n base jupyterlab nb_conda_kernels
 conda create -n plotting -c conda-forge ipykernel matplotlib
 ```
 
-inside a container environment. You only need a local installation of Docker to get started. Download the `Dockerfile` from this repository and execute this
+inside a container environment.
+
+You only need a local installation of Docker to get started. Download the `Dockerfile` and execute this
 
 ```bash
 docker image build . -t jupyter
