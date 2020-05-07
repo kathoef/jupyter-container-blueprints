@@ -10,7 +10,7 @@ RUN apt-get update --yes \
 
 
 # Install a container init system.
-# Sets non-microservice use.
+# Prepare non-microservice use.
 
 ARG TINI_VERSION=v0.19.0
 
@@ -23,7 +23,7 @@ RUN chmod +x /tini
 RUN useradd -g users -s /bin/bash --create-home jupyter
 
 
-# Install JupyterLab as un-privileged user.
+# Install JupyterLab and Python kernels as un-privileged user.
 
 USER jupyter
 
