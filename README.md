@@ -1,6 +1,6 @@
 # Containerized JupyterLab
 
-Does a Jupyter/Python kernel setup
+Here we do a Jupyter/Python kernel setup
 
 ```bash
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
@@ -34,15 +34,16 @@ in the directory, in which e.g. your already existing Jupyter notebooks are loca
 
 In the container execute `./jupyterlab.sh` to start JupyterLab. To access your notebooks via the containerized JupyterLab session, copy and paste the localhost URL into your local browser.
 
-## Disclaimer/Notes
+## Notes/Disclaimer
 
-To keep image sizes as small as possible one would actually not set up several conda environments, e.g. Python kernels, in a single container. Each kernel should rather get its own container.
+To keep single image sizes as small as possible one might actually not set up several conda environments, e.g. Python kernels, in a single container. Each kernel should rather get its own container.
 
-However, this Docker container was designed to reproduce the "one JupyterLab instance accesses them all" kernel user experience, that you get by any typical OS-based installation. It should be added, that what is presented here is rather an exercise, and might not at all be ready/recommendable for productive use.
+However, this Docker container was designed to reproduce the "one JupyterLab instance accesses them all" kernel user experience, that you get by a typical OS-based installation. Thus, it could be used as a drop-in replacement. It should be added though, that what is currently presented here is rather a prototype, than an actual workflow that is ready and can be recommended for productive use.
 
 ## References
 
 * https://github.com/jupyter/docker-stacks
 * https://github.com/ContinuumIO/docker-images
+* https://github.com/krallin/tini/blob/master/README.md
 * https://engineeringblog.yelp.com/2016/01/dumb-init-an-init-for-docker.html
 * https://stackoverflow.com/questions/43122080/how-to-use-init-parameter-in-docker-run
