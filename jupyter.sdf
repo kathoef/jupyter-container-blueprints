@@ -1,0 +1,24 @@
+bootstrap: library
+from: ubuntu:18.04
+
+%post
+
+apt-get update --yes
+apt-get install --yes --no-install-recommends wget
+rm -rf /var/lib/apt/lists/*
+
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh --quiet --no-check-certificate
+bash Miniconda3-latest-Linux-x86_64.sh -b -p /miniconda3
+
+/miniconda3/bin/conda install -n base jupyterlab nb_conda_kernels
+/miniconda3/bin/conda create -n plotting -c conda-forge ipykernel matplotlib
+
+/miniconda3/bin/conda clean --all --yes
+rm Miniconda3-latest-Linux-x86_64.sh
+
+chmod -R o=u /miniconda3
+
+echo '#!/bin/bash' > jupyterlab.sh \
+&& echo 'source /miniconda3/bin/activate &&' >> jupyterlab.sh \
+&& echo 'jupyter lab --no-browser --ip=0.0.0.0' >> jupyterlab.sh \
+&& chmod o+x jupyterlab.sh
